@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Presence - ヘルプとガイド</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#eceef0",
+                      "tertiary-fixed": "#fadbd8",
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#27695e",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-error": "#ffffff",
+                      "outline-variant": "#c0c7cf",
+                      "on-tertiary-container": "#55403e",
+                      "inverse-surface": "#2d3133",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-tint": "#1c648e",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#41484e",
+                      "primary-fixed": "#cae6ff",
+                      "on-secondary-fixed": "#00201c",
+                      "surface-bright": "#f7f9fb",
+                      "surface-variant": "#e0e3e5",
+                      "secondary-fixed-dim": "#92d3c6",
+                      "tertiary": "#705957",
+                      "on-background": "#191c1e",
+                      "on-secondary-container": "#2c6d63",
+                      "on-primary-fixed-variant": "#004b70",
+                      "surface": "#f7f9fb",
+                      "surface-dim": "#d8dadc",
+                      "background": "#f7f9fb",
+                      "on-primary-fixed": "#001e30",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#015047",
+                      "on-primary-container": "#00496d",
+                      "outline": "#71787f",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e6e8ea",
+                      "secondary-container": "#abecdf",
+                      "primary-fixed-dim": "#90cdfd",
+                      "inverse-on-surface": "#eff1f3",
+                      "primary": "#1c648e",
+                      "on-tertiary-fixed-variant": "#574240",
+                      "inverse-primary": "#90cdfd",
+                      "on-surface": "#191c1e",
+                      "primary-container": "#7cb9e8",
+                      "tertiary-container": "#c9aca9",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary-fixed": "#aeefe2",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#ddc0bd",
+                      "on-tertiary-fixed": "#281716"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "base": "8px",
+                      "margin": "64px",
+                      "gutter": "24px",
+                      "sm": "12px",
+                      "md": "24px",
+                      "xl": "80px",
+                      "lg": "48px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "display-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "label-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body {
+            background: linear-gradient(135deg, #f7f9fb 0%, #e0e3e5 100%);
+            min-height: 100vh;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 8px 32px 0 rgba(28, 100, 142, 0.05);
+        }
+        
+        .ripple-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        .ripple-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(28, 100, 142, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: expandRipple 15s infinite ease-out;
+        }
+
+        @keyframes expandRipple {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        
+        .nav-item-active {
+            position: relative;
+        }
+        
+        .nav-item-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: #1c648e;
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(28, 100, 142, 0.5);
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-x-hidden">
+<div class="ripple-bg pointer-events-none">
+<div class="ripple-circle w-[800px] h-[800px] top-[-200px] left-[-200px]" style="animation-delay: 0s;"></div>
+<div class="ripple-circle w-[600px] h-[600px] top-[40%] right-[-100px]" style="animation-delay: 5s;"></div>
+<div class="ripple-circle w-[900px] h-[900px] bottom-[-300px] left-[20%]" style="animation-delay: 10s;"></div>
+</div>
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex flex-col py-lg px-base space-y-md bg-white/60 dark:bg-surface-container/60 backdrop-blur-xl fixed left-0 top-0 h-full w-64 z-40 border-r border-white/20 shadow-xl">
+<div class="px-6 mb-md">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Presence</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Gentle Connectivity</p>
+</div>
+<div class="flex-1 space-y-2">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 0;">home</span>
+                Home
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="explore" style="font-variation-settings: 'FILL' 0;">explore</span>
+                Explore
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 0;">person</span>
+                Profile
+            </a>
+<!-- Active Tab: Help -->
+<a class="flex items-center gap-4 bg-primary-container/30 dark:bg-primary-container/10 text-primary rounded-full px-6 py-3 shadow-[0_0_20px_rgba(28,100,142,0.1)] hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 transition-all duration-300 ripple-effect active:scale-98 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="help" style="font-variation-settings: 'FILL' 1;">help</span>
+                Help
+            </a>
+</div>
+<div class="mt-auto px-6 mb-6">
+<button class="w-full py-3 bg-gradient-to-r from-primary to-secondary text-on-primary rounded-full font-label-md text-label-md shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+                Drop Water
+            </button>
+</div>
+<div class="space-y-2 border-t border-white/20 pt-4">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings" style="font-variation-settings: 'FILL' 0;">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="logout" style="font-variation-settings: 'FILL' 0;">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen px-margin py-xl relative max-w-[1440px]">
+<header class="mb-xl text-center max-w-2xl mx-auto">
+<h2 class="font-display-lg text-display-lg text-primary mb-sm">静かなつながりの始め方</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Presenceは、共通の趣味を通じて穏やかなコミュニティを育む場所です。水面に広がる波紋のように、自然な交流をお楽しみください。</p>
+</header>
+<!-- Bento Grid for Help Topics -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Guide 1: Joining Circles -->
+<article class="glass-panel rounded-xl p-md flex flex-col items-center text-center group hover:bg-white/80 transition-all duration-500 hover:-translate-y-1">
+<div class="w-20 h-20 rounded-full bg-primary-container/30 flex items-center justify-center mb-md group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-primary text-[40px]" data-icon="group_add">group_add</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">サークルに参加する</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    興味のあるテーマのサークルを見つけたら、静かに波紋（参加リクエスト）を広げてみましょう。承認されると、コミュニティの輪に加わることができます。
+                </p>
+<div class="w-full h-32 rounded-lg overflow-hidden relative">
+<img class="object-cover w-full h-full opacity-80 mix-blend-multiply" data-alt="A tranquil digital illustration of abstract overlapping translucent circles in soft blues and teals, representing a gentle community joining together. The scene is illuminated by soft, natural morning light, creating a calm, fluid glassmorphism aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP17fn3VrM2uLQZW46AkE96fsuhI_W1-lioSyAwp40xlyJVPcgKfjMT7-ikP0Qazid2ntpheOgMSqUfxQMLB3BiWaIm1Hk4q3JuLcH2gw218WoqyDqEgjh6zDo74nD0-9v45Kmu8Flc_LF0pJITw3PnJn_jZbEB9VJQFIS36oww_eZwR2E4mY_R6tpOwF-ljgaxZhzZy7-z9UlSpyroiAYuuIh-BkXctcLLHPpHmW5LDsIPxPCqChY"/>
+</div>
+</article>
+<!-- Guide 2: Participating in Events -->
+<article class="glass-panel rounded-xl p-md flex flex-col items-center text-center group hover:bg-white/80 transition-all duration-500 hover:-translate-y-1">
+<div class="w-20 h-20 rounded-full bg-secondary-container/30 flex items-center justify-center mb-md group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-secondary text-[40px]" data-icon="event_available">event_available</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">イベントへの参加</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    サークル内で企画される穏やかな集まりに参加しましょう。オンラインの読書会や、週末の静かな散歩など、無理のないペースで交流できます。
+                </p>
+<div class="w-full h-32 rounded-lg overflow-hidden relative bg-secondary-container/10 flex items-center justify-center">
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">読書会</span>
+<span class="px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm">写真散歩</span>
+</div>
+</div>
+</article>
+<!-- Guide 3: Growing Circles -->
+<article class="glass-panel rounded-xl p-md flex flex-col items-center text-center group hover:bg-white/80 transition-all duration-500 hover:-translate-y-1 lg:col-span-1 md:col-span-2">
+<div class="w-20 h-20 rounded-full bg-tertiary-container/30 flex items-center justify-center mb-md group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-tertiary text-[40px]" data-icon="bubble_chart">bubble_chart</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">輪を広げる</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">
+                    あなた自身が発起人となり、新しい波紋を作り出すこともできます。少人数から始まる、心地よい居場所を育んでいきましょう。
+                </p>
+<div class="w-full h-32 rounded-lg overflow-hidden relative">
+<img class="object-cover w-full h-full opacity-80 mix-blend-multiply" data-alt="A serene digital graphic showing small ripples expanding outwards on a calm water surface, stylized with soft pastel colors, predominantly light blue and soft teal. The lighting is diffused and peaceful, embodying a gentle connectivity theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzel5ntFh-1zzHqITAn3kdkNpDNlWiJ4GFXGqDNFOJDu2YIyQ1gKRGdqZ0nPZi4ZJ8X5UggAoMfLayvoZrQM5ARwJ6ywJau7Bf63_co21vkuEKAeRQ17Bkfl-ThfbJ508LPusg9wa2PII3xiwmwvs0xV5zmlTM31zfm5QO-vheVUS_eWVOoYMC1dNODuEKN00glHm-5es6FEDA56bPJl4_1LE_qGZbDdLqE3A0njUT7hmqqJvNZYwF"/>
+</div>
+</article>
+</div>
+</main>
+</body></html>

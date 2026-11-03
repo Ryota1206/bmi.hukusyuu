@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Presence - Explore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#fadbd8",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#27695e",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c0c7cf",
+                        "on-tertiary-container": "#55403e",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#1c648e",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#41484e",
+                        "primary-fixed": "#cae6ff",
+                        "on-secondary-fixed": "#00201c",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "secondary-fixed-dim": "#92d3c6",
+                        "tertiary": "#705957",
+                        "on-background": "#191c1e",
+                        "on-secondary-container": "#2c6d63",
+                        "on-primary-fixed-variant": "#004b70",
+                        "surface": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed": "#001e30",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#015047",
+                        "on-primary-container": "#00496d",
+                        "outline": "#71787f",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-container": "#abecdf",
+                        "primary-fixed-dim": "#90cdfd",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary": "#1c648e",
+                        "on-tertiary-fixed-variant": "#574240",
+                        "inverse-primary": "#90cdfd",
+                        "on-surface": "#191c1e",
+                        "primary-container": "#7cb9e8",
+                        "tertiary-container": "#c9aca9",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-fixed": "#aeefe2",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ddc0bd",
+                        "on-tertiary-fixed": "#281716"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "base": "8px",
+                        "margin": "64px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "xl": "80px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f7f9fb; color: #191c1e; }
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 24px rgba(28, 100, 142, 0.05);
+        }
+        .ripple-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        .ripple-glow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(28, 100, 142, 0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: width 0.4s ease-out, height 0.4s ease-out;
+        }
+        .ripple-glow:hover::after {
+            width: 150%;
+            height: 150%;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar (Desktop Only) -->
+<nav aria-label="Main Navigation" class="hidden md:flex flex-col py-lg px-base space-y-md bg-white/60 dark:bg-surface-container/60 backdrop-blur-xl fixed left-0 top-0 h-full w-64 z-40 border-r border-white/20 shadow-xl">
+<!-- Header -->
+<div class="px-6 mb-8 flex flex-col items-start">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Presence</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Gentle Connectivity</p>
+</div>
+<!-- CTA -->
+<div class="px-4 mb-4">
+<button class="w-full bg-gradient-to-r from-primary to-secondary text-white rounded-full py-3 px-4 font-label-md text-label-md shadow-[0_4px_12px_rgba(28,100,142,0.2)] hover:shadow-[0_6px_16px_rgba(28,100,142,0.3)] transition-all duration-300 ripple-effect active:scale-98 flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+                Drop Water
+            </button>
+</div>
+<!-- Navigation Links -->
+<ul class="flex-1 space-y-2 px-2">
+<li>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 font-label-md text-label-md hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>Home</span>
+</a>
+</li>
+<li>
+<a aria-current="page" class="flex items-center gap-4 bg-primary-container/30 dark:bg-primary-container/10 text-primary rounded-full px-6 py-3 shadow-[0_0_20px_rgba(28,100,142,0.1)] font-label-md text-label-md ripple-effect active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-bold">Explore</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 font-label-md text-label-md hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Profile</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 font-label-md text-label-md hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help</span>
+</a>
+</li>
+</ul>
+<!-- Footer Links -->
+<ul class="space-y-2 px-2 mt-auto">
+<li>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 font-label-md text-label-md hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-outline-variant px-6 py-3 font-label-md text-label-md hover:bg-primary-container/20 dark:hover:bg-surface-variant/20 rounded-full transition-all duration-300 ripple-effect active:scale-98" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 px-margin py-xl max-w-[1440px] mx-auto w-full flex flex-col gap-xl">
+<!-- Top Section: Community Overview -->
+<section class="w-full flex flex-col items-center mb-md">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-lg text-center font-bold">コミュニティを探索する</h2>
+<!-- Organic Cluster / Bubbles -->
+<div class="relative w-full max-w-4xl h-64 flex justify-center items-center">
+<!-- Large Bubble 1 -->
+<div class="absolute w-48 h-48 rounded-full glass-panel flex flex-col justify-center items-center transform -translate-x-32 -translate-y-8 hover:scale-105 transition-transform duration-500 cursor-pointer z-20 group ripple-glow">
+<span class="material-symbols-outlined text-primary text-4xl mb-2 group-hover:text-secondary transition-colors" data-icon="palette">palette</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-bold">アート &amp; デザイン</span>
+</div>
+<!-- Large Bubble 2 -->
+<div class="absolute w-56 h-56 rounded-full glass-panel flex flex-col justify-center items-center transform translate-x-8 translate-y-4 hover:scale-105 transition-transform duration-500 cursor-pointer z-30 group ripple-glow shadow-[0_12px_40px_rgba(28,100,142,0.1)]">
+<span class="material-symbols-outlined text-secondary text-5xl mb-2 group-hover:text-primary transition-colors" data-icon="code">code</span>
+<span class="font-body-md text-body-md text-on-surface-variant font-bold">テクノロジー</span>
+</div>
+<!-- Medium Bubble 1 -->
+<div class="absolute w-36 h-36 rounded-full glass-panel flex flex-col justify-center items-center transform translate-x-48 -translate-y-12 hover:scale-105 transition-transform duration-500 cursor-pointer z-10 group ripple-glow">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-1 group-hover:text-primary transition-colors" data-icon="music_note">music_note</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">音楽</span>
+</div>
+<!-- Small Bubble 1 -->
+<div class="absolute w-24 h-24 rounded-full glass-panel flex flex-col justify-center items-center transform -translate-x-56 translate-y-16 hover:scale-105 transition-transform duration-500 cursor-pointer z-10 group ripple-glow opacity-80">
+<span class="material-symbols-outlined text-primary-container text-2xl mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[10px]">読書</span>
+</div>
+</div>
+</section>
+<!-- Split Layout: Events & Creation -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Event List -->
+<div class="lg:col-span-7 flex flex-col gap-md">
+<!-- Filters -->
+<div class="flex items-center gap-sm mb-2">
+<button class="px-6 py-2 rounded-full glass-panel bg-primary-container/20 text-primary font-label-md text-label-md hover:bg-primary-container/40 transition-colors">全体</button>
+<button class="px-6 py-2 rounded-full glass-panel text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-colors">公式</button>
+<button class="px-6 py-2 rounded-full glass-panel text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant/50 transition-colors">非公式</button>
+</div>
+<!-- Event Cards (Glassmorphism List) -->
+<div class="flex flex-col gap-sm">
+<!-- Pinned Official Event -->
+<div class="glass-panel rounded-xl p-md flex flex-col gap-sm cursor-pointer hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-secondary/20 to-transparent rounded-bl-full pointer-events-none"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">公式</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">今日 18:00</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mt-1">週末ハッカソン準備会</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">今週末のハッカソンに向けたアイデア出しとチームビルディングを行います。初心者歓迎です。</p>
+<div class="flex items-center gap-4 mt-2">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="A small circular avatar portrait of a young professional in a light, airy office setting, softly lit. High-key modern aesthetic, gentle blue and white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1T-tgiq4AGzpQ0XfoSUlhAVqhH3irX-YGdl_oju8cqzes_NRL5Ujs8L6Ve70SXv2cnXpCHynevO00MnD8XbwM9wyfNqLyUZRozmCL4VXvOa79s3U7FDz2in6jF8yg-PQ1e5MnOsROUhE3N9Gzek2SCTdK2Jj1PRLmAG69gztDSjfTgusj8dLuiefX1HFCXpmSu927lIi8QV8rjiEomGTxOPHbMt1AgBgdzCJEH6y6eP0F7A-sEDV5"/>
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="A small circular avatar portrait of a creative individual with glasses, smiling gently against a bright, minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByTEQ4Pfpeaa2N-ygxG9w6I2CGnhH9TZ70-RyGlLAW1CGXbR5gEPwSyAsXcTc4gOnMiybZW9EieNG-ivbY27SyTDS8Z0QKd84NddbgTuoxaZ87k-WshKRjuegjmryPP1ZkrC2rfLaG4KAFIGyQPnv_Lm50yASO7m4XHUlMTTc2lkJCJKj_rSEPcScru8mm5hEoAVSlD_SgDZ9aSeHAMQsSs6t6hugfAwGjznth8B09hvc0_9f0xo48"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container flex items-center justify-center font-label-sm text-label-sm text-primary">+12</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">東京オフィス &amp; オンライン</span>
+</div>
+</div>
+<!-- Regular Event 1 -->
+<div class="glass-panel rounded-xl p-md flex flex-col gap-sm cursor-pointer hover:-translate-y-1 transition-transform duration-300 opacity-90 hover:opacity-100">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-tertiary tracking-widest">非公式</span>
+<span class="font-label-sm text-label-sm text-outline">明日 20:00</span>
+</div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface">デザインシステム勉強会</h3>
+<div class="flex items-center gap-4 mt-2">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white object-cover" data-alt="A small circular avatar of a person reading a book in a sunlit cafe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNpBSXyuNXj8M_WHNpdJFYJbKW69MdFFxBiBgjtnjApI9gvGUcxnaEeEm1Livytr-zqpeDFU2OSVQn1Ehi7synWT2uXNT0EABR7mhrb4RGIsy4rLfZVhlZt7dfVMr8Rg-JNXrkyMlK17QvgS1WgIr1qaUJGY6UZ2XK5snUoTJIeyi20puFRKe5dXOlcAGuF1kQYroigFKCIZnyueMIi9zONliLexUkALr48sRV4sSZUMXwhTuST1ua"/>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-surface-container flex items-center justify-center font-label-sm text-[10px] text-primary">+3</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">オンライン (Discord)</span>
+</div>
+</div>
+<!-- Regular Event 2 -->
+<div class="glass-panel rounded-xl p-md flex flex-col gap-sm cursor-pointer hover:-translate-y-1 transition-transform duration-300 opacity-90 hover:opacity-100">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-tertiary tracking-widest">非公式</span>
+<span class="font-label-sm text-label-sm text-outline">金曜 19:30</span>
+</div>
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface">ゆるもく会（作業通話）</h3>
+<div class="flex items-center gap-4 mt-2">
+<span class="font-label-sm text-label-sm text-outline">オンライン (Google Meet)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Event Creation Form -->
+<div class="lg:col-span-5">
+<div class="glass-panel rounded-[2rem] p-lg sticky top-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                        イベントを作成
+                    </h3>
+<form class="flex flex-col gap-4">
+<!-- 主催者名 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-2">主催者名</label>
+<input class="w-full bg-white/40 border-none rounded-full px-6 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary/30 focus:bg-white/60 transition-all placeholder:text-outline/50" placeholder="あなたの名前" type="text"/>
+</div>
+<!-- 日時 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-2">日時</label>
+<input class="w-full bg-white/40 border-none rounded-full px-6 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary/30 focus:bg-white/60 transition-all text-on-surface-variant" type="datetime-local"/>
+</div>
+<!-- 場所 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-2">場所</label>
+<input class="w-full bg-white/40 border-none rounded-full px-6 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary/30 focus:bg-white/60 transition-all placeholder:text-outline/50" placeholder="オンラインURL または 住所" type="text"/>
+</div>
+<!-- 説明 -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant ml-2">説明</label>
+<textarea class="w-full bg-white/40 border-none rounded-2xl px-6 py-4 font-body-md text-body-md focus:ring-2 focus:ring-primary/30 focus:bg-white/60 transition-all placeholder:text-outline/50 resize-none" placeholder="イベントの詳細や参加条件など" rows="3"></textarea>
+</div>
+<!-- 公式/非公式選択 -->
+<div class="flex gap-4 mt-2">
+</div>
+<!-- 制作ボタン -->
+<button class="mt-6 w-full bg-gradient-to-r from-primary to-secondary text-white rounded-full py-4 font-body-lg text-body-lg font-bold shadow-[0_8px_24px_rgba(28,100,142,0.2)] hover:shadow-[0_12px_32px_rgba(28,100,142,0.3)] hover:-translate-y-0.5 transition-all duration-300" type="submit">
+                            イベントを作成
+                        </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+</body></html>
